@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<ul>
+<li><a th:href="@{/hello}">World</a></li>
+
+<li th:each="FirstName : ${nams}" >
+<a th:href="@{/hello(name=${FirstName})}" th:text="${FirstName}">First Name</a>
+</li>
+
+</ul>
+</body>
+</html>

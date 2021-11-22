@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Hello World !!</h1>
+
+<h2 th:text="| Hello ${name} ! |">Ca sera invisible</h2>
+
+<!-- <ul>
+<li th:text="${email.getSubject}">Subject</li>
+<li th:text="${email.getContent}">Content</li>
+</ul>  -->
+
+
+<!-- Pour afficher avec une autre maniere -->
+<ul th:object="${email}">
+<li th:text="*{subject}">Subject</li>
+<li th:text="*{content}">Content</li>
+</ul>
+
+<!-- boucle ********************************************** -->
+<ul>
+<li th:each="eachEmail : ${emailList}">
+<span th:text="| ${eachEmail.subject} : ${eachEmail.content} |">Subject : Content</span>
+</li>
+</ul>
+<!-- Condition if ********************************************** -->
+
+
+<h2 th:if="${isLogged==true}" th:text="| Hello ${Name} ! |">Ca sera invisible</h2>
+<a th:if="${isLogged==false}" href="#">Sign in</a>
+
+<!-- ********************************************** -->
+
+
+</body>
+</html>
